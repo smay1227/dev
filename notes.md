@@ -1,5 +1,9 @@
 # 开发笔记
 ## redis操作
+### 登录集群中某一台机器
+```
+redis-cli -h 192.168.200.56 -p 7002 -a "pass" -c
+```
 ### 查看某个key所占内存大小
 ```
 memory usage "q9o.cn/D1SJRu"
@@ -15,6 +19,14 @@ info
 ### 查看redis实列大小
 ```
 dbsize
+```
+### 查看集群主备信息
+```
+cluster nodes
+```
+### 删除某个实例的数据
+```
+flushdb
 ```
 ## 长链接
 ### 断开某个长链接
