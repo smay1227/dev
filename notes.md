@@ -27,6 +27,7 @@ cluster nodes
 ### 删除某个实例的数据
 ```
 flushdb
+flushall
 ```
 ## 长链接
 ### 断开某个长链接
