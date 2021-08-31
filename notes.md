@@ -4,6 +4,10 @@
 ```
 redis-cli -h 192.168.200.56 -p 7002 -a "pass" -c
 ```
+### 随机一个key
+```
+RANDOMKEY
+```
 ### 查看某个key所占内存大小
 ```
 memory usage "q9o.cn/D1SJRu"
