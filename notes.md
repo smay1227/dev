@@ -56,3 +56,13 @@ netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
 ```
 tcpdump -n -i bond0 src 106.14.3.99 or dst 106.14.3.99 and port 7890 and tcp -w 1127.cap
 ```
+## linux命令
+### 修改主机名
+centos7中用
+```
+hostnamectl set-hostname xxxx
+```
+### 安装jdk
+```
+rpm -ivh jdk-8u144-linux-x64.rpm
+```
