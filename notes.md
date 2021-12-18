@@ -66,3 +66,8 @@ hostnamectl set-hostname xxxx
 ```
 rpm -ivh jdk-8u144-linux-x64.rpm
 ```
+### 动态查看服务器时间
+```
+watch -n 1 -d date
+watch -n 1 "date +%T"
+```
