@@ -71,3 +71,7 @@ rpm -ivh jdk-8u144-linux-x64.rpm
 watch -n 1 -d date
 watch -n 1 "date +%T"
 ```
+### 查看机器ip
+```
+curl cip.cc
+```
