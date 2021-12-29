@@ -75,3 +75,7 @@ watch -n 1 "date +%T"
 ```
 curl cip.cc
 ```
+### 指定端口启动
+```
+nohup java -Dspring.profiles.active=pro -Dserver.port=9090 -jar devops-platform-0.0.1-SNAPSHOT.jar &
+```
