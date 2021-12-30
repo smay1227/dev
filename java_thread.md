@@ -51,3 +51,22 @@ jstack 31852 | grep 7dc9
 jstat -gc -h3 pid 1000 10
 ```
 gc情况，每隔1000ms打印一次记录，打印10次停止，每3行后打印指标头部
+## iostat
+```
+iostat -x 1
+Linux 3.10.0-957.el7.x86_64 (localhost.localdomain) 	12/30/2021 	_x86_64_	(4 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           2.41    0.00    0.96    0.00    0.00   96.63
+
+Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
+sda               0.00     0.02    0.13    2.51    22.40   127.50   113.67     0.00    0.62    2.52    0.52   0.32   0.09
+dm-0              0.00     0.00    0.13    2.53    22.34   127.48   112.94     0.00    0.64    2.57    0.54   0.32   0.09
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          87.75    0.00   10.75    0.00    0.00    1.50
+
+Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
+sda               0.00     0.00    0.00   66.00     0.00  8127.50   246.29     0.02    0.36    0.00    0.36   0.33   2.20
+dm-0              0.00     0.00    0.00   66.00     0.00  8127.50   246.29     0.02    0.36    0.00    0.36   0.35   2.30
+```
