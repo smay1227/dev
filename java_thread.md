@@ -51,6 +51,10 @@ jstack 31852 | grep 7dc9
 jstat -gc -h3 pid 1000 10
 ```
 gc情况，每隔1000ms打印一次记录，打印10次停止，每3行后打印指标头部
+## 查看线程情况
+```
+ps -mp pid -o THREAD,tid,time
+```
 ## iostat
 ```
 iostat -x 1
