@@ -16,6 +16,10 @@ memory usage "q9o.cn/D1SJRu"
 ```
 hgetall  "q9o.cn/D1SJRu" 
 ```
+### 查看key值过期时间
+```
+ttl "q9o.cn/D1SJRu"
+```
 ### 查看redis信息
 ```
 info
