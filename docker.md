@@ -3,6 +3,7 @@
 ### 列出所有的容器
 ```
 docker container ls --all
+docker ps -a
 ```
 ```
 CONTAINER ID   IMAGE                                         COMMAND                  CREATED          STATUS          PORTS                                                                                NAMES
