@@ -8,3 +8,7 @@
 ```
 ./hadoop fs -rm /hive/click_20220309/0_20220309_0_1646809008.orc
 ```
+### presto 连接
+```
+./prestoClient --server localhost:8080 --catalog hive --schema default
+```
