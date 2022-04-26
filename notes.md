@@ -83,3 +83,16 @@ curl cip.cc
 ```
 nohup java -Dspring.profiles.active=pro -Dserver.port=9090 -jar devops-platform-0.0.1-SNAPSHOT.jar &
 ```
+## 防火墙
+### 在指定区域打开端口（记得重启防火墙）
+```
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+```
+### 重启防火墙
+```
+firewall-cmd --reload
+```
+### 查看所有端口
+```
+firewall-cmd --list-all
+```
