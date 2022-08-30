@@ -12,3 +12,13 @@
 ```
 ./prestoClient --server localhost:8080 --catalog hive --schema default
 ```
+## beeline
+###
+在装有beeline的机器上直接输入
+```
+beeline
+```
+进入beeline, 连接hive
+```
+!connect jdbc:hive2://hwy-bms-data02.xxxx.com:2181,hwy-bms-data01.xxxx.com:2181,hwy-bms-data03.xxxx.com:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2
+```
