@@ -37,6 +37,7 @@ hadoop fs -cp /user/hive/.Trash/Current/data/dw/ods/* /data/dw/ods
 | fs.trash.interval  | 分钟数，当超过这个分钟数后检查点会被删除。如果为零，回收站功能将被禁用。 |
 | fs.trash.checkpoint.interval  | 检查点创建的时间间隔(单位为分钟)。其值应该小于或等于fs.trash.interval。如果为零，则将该值设置为fs.trash.interval的值。 |
 ### 回收站目录
+一般是在/user 目录下，在对应的用户名下面
 ```
 /user/${username}/.Trash/current
 ```
