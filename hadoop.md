@@ -55,3 +55,57 @@ beeline
 ```
 !connect jdbc:hive2://hwy-bms-data02.xxxx.com:2181,hwy-bms-data01.xxxx.com:2181,hwy-bms-data03.xxxx.com:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2
 ```
+## flume
+## flume1.9及以上连kafka
+```
+java.security.cert.CertificateException: No subject alternative names matching IP address 10.45.16.224 found
+```
+kafka高版本默认验证hostname,kafka需要如下字段置为空字符串跳过验证，但flume不支持配置文件是空的字符串，目前flume-1.9,1.10还没解决，是个bug。
+```
+kafka.consumer.ssl.endpoint.identification.algorithm=''
+```
+### flume写入hive
+#### 缺少hive-hcatalog-streaming.jar
+```
+java.lang.NoClassDefFoundError: org/apache/hive/hcatalog/streaming/RecordWriter
+```
+#### 缺少hive-metastore.jar
+```
+java.lang.NoClassDefFoundError: org/apache/hadoop/hive/metastore/api/MetaException
+```
+#### 缺少hive-exec.jar
+```
+java.lang.ClassNotFoundException: org.apache.hadoop.hive.ql.session.SessionState
+```
+#### 缺少hive-cli.jar
+```
+java.lang.ClassNotFoundException: org.apache.hadoop.hive.cli.CliSessionState
+```
+#### 缺少hadoop-common.jar
+```
+java.lang.NoClassDefFoundError: org/apache/hadoop/conf/Configuration
+```
+#### 缺少hadoop-mapreduce-client-core.jar
+```
+java.lang.ClassNotFoundException: org.apache.hadoop.mapreduce.TaskAttemptContext
+```
+#### 缺少commons-io.jar
+```
+java.lang.ClassNotFoundException: org.apache.commons.io.Charsets
+```
+#### 缺少hive-hcatalog-core.jar
+```
+java.lang.ClassNotFoundException: org.apache.hive.hcatalog.common.HCatUtil
+```
+#### 缺少commons-configuration.jar
+```
+java.lang.ClassNotFoundException: org.apache.commons.configuration.Configuration
+```
+#### 缺少hadoop-auth.jar
+```
+java.lang.ClassNotFoundException: org.apache.hadoop.util.PlatformName
+```
+#### 缺少libfb303-0.9.3.jar
+```
+java.lang.ClassNotFoundException: com.facebook.fb303.FacebookService$Iface
+```

@@ -83,6 +83,14 @@ curl cip.cc
 ```
 nohup java -Dspring.profiles.active=pro -Dserver.port=9090 -jar devops-platform-0.0.1-SNAPSHOT.jar &
 ```
+### chown newowner 文件/目录 【改变所有者】
+```
+chown omm client.jks
+```
+### chgrp newgroup 文件/目录 【改变所在组】
+```
+chgrp ficommon client.jks
+```
 ## 防火墙
 ### 在指定区域打开端口（记得重启防火墙）
 ```
