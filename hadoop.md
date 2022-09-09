@@ -24,7 +24,7 @@ hadoop fs -cp /user/hive/.Trash/Current/data/dw/ods/* /data/dw/ods
     <name>fs.trash.interval</name>  
     <value>1440</value>  
     <description>Number of minutes after which the checkpoint gets deleted. If zero, the trash feature is disabled.</description>  
-</property>  
+</property>
 
 <property>  
     <name>fs.trash.checkpoint.interval</name>  
@@ -108,4 +108,37 @@ java.lang.ClassNotFoundException: org.apache.hadoop.util.PlatformName
 #### 缺少libfb303-0.9.3.jar
 ```
 java.lang.ClassNotFoundException: com.facebook.fb303.FacebookService$Iface
+```
+#### 缺少antlr-runtime-3.4.jar
+```
+java.lang.ClassNotFoundException: org.antlr.runtime.RecognitionException
+```
+#### 缺少hadoop-hdfs.jar
+```
+java.io.IOException: No FileSystem for scheme: hdfs
+```
+#### 缺少htrace-core-3.1.0-incubating.jar
+```
+java.lang.ClassNotFoundException: org.apache.htrace.SamplerBuilder
+```
+#### 复制hdfs-site.xml到flume/conf目录
+testservice是公司Hadoop集群NameService的名字，这个错误是由于找不到Hadoop集群NameService造成的，把hdfs-site.xml复制到flume/conf目录
+```
+java.lang.IllegalArgumentException: java.net.UnknownHostException: testservice
+```
+#### 缺少hadoop-yarn-api.jar, hadoop-yarn-common.jar, hadoop-yarn-client
+```
+java.lang.ClassNotFoundException: org.apache.hadoop.yarn.conf.YarnConfiguration
+```
+#### 缺少jersey-client-1.9.jar
+```
+java.lang.ClassNotFoundException: com.sun.jersey.api.client.config.ClientConfig
+```
+#### 缺少jersey-core-1.9.jar
+```
+java.lang.ClassNotFoundException: com.sun.jersey.core.util.FeaturesAndProperties
+```
+#### 缺少jackson-jaxrs-1.9.13.jar
+```
+java.lang.ClassNotFoundException: org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider
 ```
