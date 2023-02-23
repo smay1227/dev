@@ -104,3 +104,7 @@ firewall-cmd --reload
 ```
 firewall-cmd --list-all
 ```
+### 查看本机监听的所有端口
+```
+ss -lntp
+```
