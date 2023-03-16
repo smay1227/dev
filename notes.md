@@ -108,3 +108,14 @@ firewall-cmd --list-all
 ```
 ss -lntp
 ```
+### 查看telnet是否打开
+```
+systemctl list-unit-files|grep telnet
+telnet@.service                            static         
+telnet.socket                              enabled
+```
+### 关闭
+```
+systemctl stop telnet.socket
+systemctl disable telnet.socket
+```

@@ -142,3 +142,7 @@ java.lang.ClassNotFoundException: com.sun.jersey.core.util.FeaturesAndProperties
 ```
 java.lang.ClassNotFoundException: org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider
 ```
+#### hdfs状态查看
+hdfs dfsadmin -report
+#### mrs设置环境变量
+source /opt/Bigdata/client/bigdata_env
