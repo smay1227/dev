@@ -23,3 +23,22 @@ docker exec -it real /bin/bash
 ```
 docker logs -f sms
 ```
+### inspect pid
+```
+docker inspect 4afd890c3552 |grep Pid
+"Pid": 2241212,
+"PidMode": "",
+"PidsLimit": 0,
+```
+### 使用docker里的网络
+```
+nsenter -n -t pid
+```
+### docker跳过证书认证
+在/etc/docker中daemon.json(没有就新建)中追加如下，之后重启docker, systemctl restart docker
+```
+{
+  "insecure-registry": ["harbor.svoltcloud.com"]
+}
+```
+

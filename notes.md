@@ -119,3 +119,7 @@ telnet.socket                              enabled
 systemctl stop telnet.socket
 systemctl disable telnet.socket
 ```
+## telnet
+```
+yum  install telnet -y
+```
