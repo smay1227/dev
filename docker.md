@@ -1,5 +1,5 @@
 # docker笔记
-
+## 常用命令
 ### 列出所有的容器
 ```
 docker container ls --all
@@ -41,4 +41,74 @@ nsenter -n -t pid
   "insecure-registry": ["harbor.svoltcloud.com"]
 }
 ```
+### 启动容器
+```
+docker run -itd --name basepro alpinepro:2.0 /bin/sh
+```
+### 停止容器
+```
+docker stop containerId
+```
+### 删除镜像文件
+```
+docker rmi IMAGE:TAG
+```
+### 删除运行（过）容器
+```
+docker rm containerId
+```
+### 镜像拉取
+```
+docker pull harbor.xxx.com/power/main/java:1.0.0
+```
 
+## 给容器打字体
+### 进入需打字体的容器
+```
+# 更新源
+apk update
+# 安装font-adobe-100dpi软件
+apk add font-adobe-100dpi
+# 创建文件
+mkdir /usr/share/fonts/win
+```
+### 将字体复制到docker容器中
+```
+docker cp xxxx.ttc containerId:/usr/share/fonts/win
+```
+### 对文件赋权限
+```
+chmod 777 /usr/share/fonts/win/xxxx.ttc
+```
+### 刷新 查看
+```
+# 刷新
+fc-cache -f
+# 查看所有字体
+fc-list
+```
+### 制作镜像
+```
+docker commit -a "author" -m "comment" containerId image:tag
+```
+### 镜像私服推送
+```
+# 登录
+docker login ip:port
+# 打tag
+docker tag SOURCE_IMAGE[:TAG] ip:port/power/IMAGE[:TAG]
+# 推镜像
+docker push ip:port/power/IMAGE[:TAG]
+# 退出登录
+docker logout
+```
+
+# k8s
+### get nodes
+```
+kubectl get nodes --show-labels
+```
+### 描述节点
+```
+kubectl describe nodes
+```

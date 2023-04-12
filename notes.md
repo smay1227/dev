@@ -91,6 +91,10 @@ chown omm client.jks
 ```
 chgrp ficommon client.jks
 ```
+### 查看已经删除还在占用的文件
+```
+lsof |grep /data|grep delete
+```
 ## 防火墙
 ### 在指定区域打开端口（记得重启防火墙）
 ```
@@ -119,7 +123,7 @@ telnet.socket                              enabled
 systemctl stop telnet.socket
 systemctl disable telnet.socket
 ```
-## telnet
+### telnet
 ```
 yum  install telnet -y
 ```
