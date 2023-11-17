@@ -59,6 +59,7 @@ netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
 ### 抓包命令
 ```
 tcpdump -n -i bond0 src 106.14.3.99 or dst 106.14.3.99 and port 7890 and tcp -w 1127.cap
+tcpdump -i eth0 tcp port 4444 -w 32960_82.pcap
 ```
 ## linux命令
 ### 修改主机名
