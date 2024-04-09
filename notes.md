@@ -128,3 +128,7 @@ systemctl disable telnet.socket
 ```
 yum  install telnet -y
 ```
+## 查找日志
+```
+ls /data/k8s/kubelet/pods/*/volumes/kubernetes.io~empty-dir/varlog/battery-data-access/pe-battery-data-access.2024-04-05**gz | xargs gunzip -c {} | grep w4nksT1/Sqe+O/iMOjSZqyupGfiBZDCw7N0UlrLxKyo= > bbb.txt
+```
