@@ -181,6 +181,10 @@ source /etc/profile
 ```
 java -version
 ```
+### 制作镜像
+```
+docker commit -a "xxx" -m "headless chrome jdk" cffd0b8b48bc java-chrome:4.0.0
+```
 # k8s
 ### get nodes
 ```
