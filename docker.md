@@ -102,7 +102,85 @@ docker push ip:port/power/IMAGE[:TAG]
 # 退出登录
 docker logout
 ```
+## 基于centos7镜像制作headless chrome镜像
+### 更换yum源
+#### 备份原来的yum源
+```
+cd /etc/yum.repos.d/;mkdir bak/; mv *.repo bak/
+```
+#### 下载阿里云Centos-7.repo文件
+```
+curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+```
+#### 清除yum缓存
+```
+yum clean all
+```
+#### 缓存阿里云镜像
+```
+yum makecache
+```
+#### 测试阿里云镜像
+```
+ yum list
+```
+### 修改镜像时区
+```
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+```
+### 解决中文乱码
+#### 安装两个包
+```
+yum install kde-l10n-Chinese -y
+yum install glibc-common -y
+```
+#### 转换语言和字符集
+```
+localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
+```
+#### 添加定义到系统环境变量
+```
+vi /etc/profile
+export LC_ALL=zh_CN.utf8
+```
+#### 执行生效
+```
+source /etc/profile
+```
+### 安装chrome
+不能安装最新版，会出错
+```
+ wget http://dist.control.lth.se/public/CentOS-7/x86_64/google.x86_64/google-chrome-stable-124.0.6367.118-1.x86_64.rpm
+ yum install google-chrome-stable-124.0.6367.118-1.x86_64.rpm 
+```
+#### 验证
+```
+google-chrome --version
+google-chrome --headless=new --dump-dom https://www.baidu.com/
+google-chrome --headless=new --screenshot=D:\datas\svolt\file\alarm_1725603903763_img.png --window-size=1280,720 --virtual-time-budget=42000 D:\datas\svolt\file\alarm_1725603903763.html
+```
+### 安装java
+```
+tar -zxvf jdk-8u333-linux-x64.tar.gz
+```
+#### 配置环境变量
+```
+vim /etc/profile
+```
+```
+export JAVA_HOME=/usr/local/src/jdk1.8.0_411
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export JRE_HOME=$JAVA_HOME/jre
+```
+#### 执行生效
+```
+source /etc/profile
+```
+```
+java -version
+```
 # k8s
 ### get nodes
 ```
