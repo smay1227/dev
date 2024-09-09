@@ -182,6 +182,21 @@ source /etc/profile
 java -version
 ```
 ### 制作镜像
+#### 镜像启动后/etc/profile环境变量不生效
+通过查看几个用户环境变量文件，发现有如下调用链,唯独漏了配置文件 /etc/profile
+```
+~/.bash_profile
+~/.bashrc
+/etc/bashrc
+/etc/profile.d/*.sh
+```
+将环境放到文件夹/etc/profile.d 中
+```
+# 新建环境变量文件
+vim /etc/profile.d/env.sh
+
+# /etc/profile.d/env.sh
+```
 ```
 docker commit -a "xxx" -m "headless chrome jdk" cffd0b8b48bc java-chrome:4.0.0
 ```
